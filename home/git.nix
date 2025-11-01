@@ -1,9 +1,9 @@
-# { primaryUser, ... }:
+# { primaryUser, primaryMail... }:
 {
   programs.git = {
-    # enable = true;
-    # userName = "YOUR_NAME"; # TODO replace
-    # userEmail = "YOUR_EMAIL"; # TODO replace
+    enable = true;
+    userName = primaryUser; # TODO replace
+    userEmail = primaryMail"; # TODO replace
 
     # lfs.enable = true;
 

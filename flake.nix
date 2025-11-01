@@ -28,6 +28,7 @@
     let
       # TODO: replace with your username
       primaryUser = "fpalen";
+      primaryMail = "fpalen@gmail.com"
     in
     {
       # build darwin flake using:
