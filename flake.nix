@@ -19,6 +19,7 @@
   outputs =
     {
       self,
+      system,
       darwin,
       nixpkgs,
       home-manager,
