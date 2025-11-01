@@ -1,4 +1,4 @@
-{ primaryUser, ... }:
+{ primaryUser, primaryMail, ... }:
 {
   imports = [
     ./packages.nix
