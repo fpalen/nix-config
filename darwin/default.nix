@@ -2,7 +2,7 @@
   pkgs,
   inputs,
   self,
-  primaryUser,
+  # primaryUser,
   ...
 }:
 {
