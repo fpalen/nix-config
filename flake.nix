@@ -19,7 +19,6 @@
   outputs =
     {
       self,
-      system,
       darwin,
       nixpkgs,
       home-manager,
@@ -28,7 +27,7 @@
     }@inputs:
     let
       # TODO: replace with your username
-      primaryUser = system.primaryUser;
+      system.primaryUser = system.primaryUser;
     in
     {
       # build darwin flake using:
