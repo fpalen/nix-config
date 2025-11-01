@@ -37,7 +37,7 @@
       # "signal"
 
       # other
-      # "1password"
+      "1password"
       # "anki"
       # "brave-browser"
       # "obsidian"
