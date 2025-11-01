@@ -27,7 +27,7 @@
     }@inputs:
     let
       # TODO: replace with your username
-      system.primaryUser = "fpalen";
+      primaryUser = "fpalen";
     in
     {
       # build darwin flake using:
@@ -38,7 +38,7 @@
           ./darwin
           ./hosts/my-macbook/configuration.nix
         ];
-        specialArgs = { inherit inputs self system; };
+        specialArgs = { inherit inputs self primaryUser; };
       };
 
     };
