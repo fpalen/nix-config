@@ -17,13 +17,13 @@
       # graphite-cli
     # ];
 
-    programs = {
+    # programs = {
       # zsh = {
         # initContent = ''
           # Source shell functions
           # source ${./shell-functions.sh}
         # '';
       # };
-    };
+    # };
   };
 }
