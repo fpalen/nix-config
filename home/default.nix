@@ -1,4 +1,4 @@
-# { primaryUser, ... }:
+{ primaryUser, ... }:
 {
   imports = [
     ./packages.nix
@@ -8,7 +8,7 @@
   ];
 
   home = {
-    # username = primaryUser;
+    username = primaryUser;
     stateVersion = "25.05";
     sessionVariables = {
       # shared environment variables
