@@ -21,7 +21,7 @@ A clean, well-documented starting point for managing your macOS system declarati
 ```bash
 # Clone the repository
 git clone https://github.com/fpalen/nix-config ~/.config/nix
-nix run nix-darwin -- switch --flake ~/.config/nix#my-macbook
+sudo nix run nix-darwin -- switch --flake ~/.config/nix#my-macbook
 cd ~/.config/nix
 ```
 
