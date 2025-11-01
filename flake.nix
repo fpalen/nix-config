@@ -38,7 +38,7 @@
           ./darwin
           ./hosts/my-macbook/configuration.nix
         ];
-        specialArgs = { inherit inputs self primaryUser; };
+        specialArgs = { inherit inputs self; };
       };
 
     };
