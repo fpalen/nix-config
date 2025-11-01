@@ -28,7 +28,7 @@
       # dev
       # "cursor"
       # "ghostty"
-      # "visual-studio-code"
+      "visual-studio-code"
       # "zed"
 
       # messaging
