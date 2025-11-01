@@ -30,7 +30,7 @@
 
   # homebrew installation manager
   nix-homebrew = {
-    user = primaryUser;
+    # user = primaryUser;
     enable = true;
     autoMigrate = true;
   };
