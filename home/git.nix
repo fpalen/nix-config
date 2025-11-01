@@ -1,4 +1,4 @@
-# { primaryUser, primaryMail... }:
+# { primaryUser, primaryMail, ... }:
 {
   programs.git = {
     enable = true;
