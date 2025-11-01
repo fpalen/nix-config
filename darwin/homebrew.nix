@@ -22,6 +22,9 @@
       # "raycast"
       # "betterdisplay"
 
+      # browsers
+      "firefox"
+
       # dev
       # "cursor"
       # "ghostty"
