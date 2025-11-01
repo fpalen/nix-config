@@ -4,7 +4,7 @@
   ...
 }:
 {
-  networking.hostName = "my-macbook";
+  # networking.hostName = "my-macbook";
 
   # host-specific homebrew casks
   homebrew.casks = [
@@ -12,18 +12,18 @@
   ];
 
   # host-specific home-manager configuration
-  home-manager.users.${primaryUser} = {
-    home.packages = with pkgs; [
-      graphite-cli
-    ];
+  # home-manager.users.${primaryUser} = {
+    # home.packages = with pkgs; [
+      # graphite-cli
+    # ];
 
     programs = {
-      zsh = {
-        initContent = ''
+      # zsh = {
+        # initContent = ''
           # Source shell functions
-          source ${./shell-functions.sh}
-        '';
-      };
+          # source ${./shell-functions.sh}
+        # '';
+      # };
     };
   };
 }
