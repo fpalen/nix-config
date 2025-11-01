@@ -45,7 +45,7 @@
       # ];
     # };
     extraSpecialArgs = {
-      inherit inputs self primaryUser;
+      # inherit inputs self primaryUser;
     };
   };
 
