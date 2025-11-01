@@ -20,7 +20,7 @@ A clean, well-documented starting point for managing your macOS system declarati
 
 ```bash
 # Clone the repository
-git clone https://github.com/nebrelbug/nix-macos-starter ~/.config/nix
+git clone https://github.com/fpalen/nix-config ~/.config/nix
 cd ~/.config/nix
 ```
 
