@@ -1,4 +1,4 @@
-{ primaryUser, ... }:
+# { primaryUser, ... }:
 {
   programs.git = {
     # enable = true;
