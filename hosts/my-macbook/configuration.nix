@@ -1,6 +1,6 @@
 {
   pkgs,
-  primaryUser,
+  # primaryUser,
   ...
 }:
 {
