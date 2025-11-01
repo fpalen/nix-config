@@ -29,11 +29,11 @@
   nixpkgs.config.allowUnfree = true;
 
   # homebrew installation manager
-  nix-homebrew = {
+  # nix-homebrew = {
     # user = primaryUser;
-    enable = true;
-    autoMigrate = true;
-  };
+    # enable = true;
+    # autoMigrate = true;
+  # };
 
   # home-manager config
   home-manager = {
