@@ -2,7 +2,7 @@
   pkgs,
   inputs,
   self,
-  # primaryUser,
+  primaryUser,
   ...
 }:
 {
@@ -29,32 +29,32 @@
   nixpkgs.config.allowUnfree = true;
 
   # homebrew installation manager
-  # nix-homebrew = {
-    # user = primaryUser;
-    # enable = false;
-    # autoMigrate = true;
-  # };
+  nix-homebrew = {
+    user = primaryUser;
+    enable = false;
+    autoMigrate = true;
+  };
 
   # home-manager config
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    # users.${primaryUser} = {
-      # imports = [
-        # ../home
-      # ];
-    # };
+    users.${primaryUser} = {
+      imports = [
+        ../home
+      ];
+    };
     extraSpecialArgs = {
-      # inherit inputs self primaryUser;
+      inherit inputs self primaryUser;
     };
   };
 
   # macOS-specific settings
-  # system.primaryUser = primaryUser;
-  # users.users.${primaryUser} = {
-    # home = "/Users/${primaryUser}";
-    # shell = pkgs.zsh;
-  # };
+  system.primaryUser = primaryUser;
+  users.users.${primaryUser} = {
+    home = "/Users/${primaryUser}";
+    shell = pkgs.zsh;
+  };
   environment = {
     systemPath = [
       "/opt/homebrew/bin"
