@@ -13,6 +13,11 @@
       # github = {
         # user = primaryUser;
       # };
+      url."ssh://git@github.com/".insteadOf = [
+        "https://github.com/"
+        "http://github.com/"
+        "git://github.com/"
+      ];
       init = {
         defaultBranch = "main";
       };
