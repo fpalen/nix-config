@@ -9,7 +9,7 @@
       # htop
       # tree
       # ripgrep
-      # gh
+      gh
       # zoxide
 
       # programming languages
