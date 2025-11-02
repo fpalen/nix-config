@@ -14,7 +14,7 @@
     stateVersion = "25.05";
     sessionVariables = {
       # shared environment variables
-      GH_TOKEN="foo"
+      GH_TOKEN="foo";
     };
 
     # create .hushlogin file to suppress login messages
