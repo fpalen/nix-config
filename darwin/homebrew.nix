@@ -24,6 +24,7 @@
 
       # browsers
       "firefox"
+      "microsoft-edge"
 
       # dev
       # "cursor"
