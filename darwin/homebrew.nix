@@ -41,6 +41,7 @@
       "1password"
       "1password-cli"
       "openconnect"
+      "openconnect-gui"
       # "anki"
       # "brave-browser"
       # "obsidian"
