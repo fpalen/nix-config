@@ -40,7 +40,6 @@
       # other
       "1password"
       "1password-cli"
-      "openconnect-gui"
       # "anki"
       # "brave-browser"
       # "obsidian"
