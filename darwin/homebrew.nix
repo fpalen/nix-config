@@ -40,7 +40,6 @@
       # other
       "1password"
       "1password-cli"
-      "openconnect"
       "openconnect-gui"
       # "anki"
       # "brave-browser"
@@ -51,6 +50,7 @@
       # "zen"
     ];
     brews = [
+      "openconnect"
       # "docker"
       # "colima"
     ];
