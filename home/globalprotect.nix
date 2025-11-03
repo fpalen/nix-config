@@ -1,0 +1,9 @@
+{ config, pkgs, ... }:
+
+let
+  scriptsDir = ./.;
+in {
+  home.file.".local/bin/gp-clean".source = "${scriptsDir}/scripts/gp-stop.sh";
+  home.file.".local/bin/gp-restart".source = "${scriptsDir}/scripts/gp-restart.sh";
+  home.file.".local/bin/gp-start".source = "${scriptsDir}/scripts/gp-start.sh";
+}

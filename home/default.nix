@@ -7,6 +7,7 @@
     ./shell.nix
     ./mise.nix
     ./vscode.nix
+    ./globalprotect.nix
   ];
 
   home = {
