@@ -30,6 +30,11 @@
         # NSAutomaticPeriodSubstitutionEnabled = false;
         # NSAutomaticWindowAnimationsEnabled = false;
       };
+
+      dock = {
+        show-recents = false;
+        minimize-to-application = true;
+      };
     };
   };
 }
