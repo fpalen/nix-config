@@ -9,6 +9,7 @@
   imports = [
     ./homebrew.nix
     ./settings.nix
+    ./microsoft-edge.nix
     inputs.home-manager.darwinModules.home-manager
     inputs.nix-homebrew.darwinModules.nix-homebrew
   ];

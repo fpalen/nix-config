@@ -7,7 +7,6 @@
     ./shell.nix
     ./mise.nix
     ./vscode.nix
-    ./micorofto-edge.nix
   ];
 
   home = {
