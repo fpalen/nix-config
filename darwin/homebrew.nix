@@ -25,7 +25,7 @@
       # browsers
       "firefox"
       "microsoft-edge"
-      "ungoogled-chromium"
+      "brave-browser"
 
       # dev
       # "cursor"
