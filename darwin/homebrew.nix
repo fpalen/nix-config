@@ -41,7 +41,6 @@
       # other
       "1password"
       "1password-cli"
-      "qemu"
       # "anki"
       # "brave-browser"
       # "obsidian"
@@ -51,6 +50,7 @@
       # "zen"
     ];
     brews = [
+      "qemu"
       "lima"
       "colima"
       "docker"
