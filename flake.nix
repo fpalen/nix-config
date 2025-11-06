@@ -26,6 +26,7 @@
       nixpkgs,
       home-manager,
       nix-homebrew,
+      lazyvim,
       ...
     }@inputs:
     let
