@@ -8,7 +8,7 @@ _: {
     shellAliases = {
       "la" = "ls -la";
       ".." = "cd ..";
-      "nix-switch" = "sudo darwin-rebuild switch --flake ~/.config/nix#my-macbook ";
+      "nix-switch" = "sudo darwin-rebuild switch --flake ~/.config/nix#my-macbook";
     };
   };
 
