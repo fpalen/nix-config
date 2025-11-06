@@ -14,6 +14,9 @@
 
     # declarative homebrew management
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+
+    # lazyvim
+    lazyvim.url = "github:pfassina/lazyvim-nix";
   };
 
   outputs =
