@@ -14,7 +14,7 @@ AGENT_PLIST="/Library/LaunchAgents/com.paloaltonetworks.gp.pangpa.plist"
 DAEMON_LABEL="com.paloaltonetworks.gp.pangps"
 AGENT_LABEL="com.paloaltonetworks.gp.pangpa"
 APP_PATH="/Applications/GlobalProtect.app"
-TIMEOUT="${TIMEOUT:-10}"   # segundos máx. de espera por cada servicio
+TIMEOUT="${TIMEOUT:-20}"   # segundos máx. de espera por cada servicio
 
 # ===== Opciones =====
 OPEN_GUI=1
@@ -58,11 +58,32 @@ wait_for_proc() {
   return 0
 }
 
-# ===== Comprobaciones =====
-if [[ ! -f "$DAEMON_PLIST" || ! -f "$AGENT_PLIST" ]]; then
-  echo "⚠️  No se encuentran los plists de GlobalProtect."
-  echo "    Asegúrate de tener instalado el cliente oficial."
-  exit 1
+# --- Descubrir plists/labels instalados ---
+DAEMON_PLIST=""
+AGENT_PLIST=""
+for p in \
+  /Library/LaunchDaemons/com.paloaltonetworks.gp.pangps.plist \
+  /Library/LaunchDaemons/com.paloaltonetworks.gp.*.plist
+do [[ -f "$p" ]] && DAEMON_PLIST="$p" && break; done
+
+for p in \
+  /Library/LaunchAgents/com.paloaltonetworks.gp.pangpa.plist \
+  /Library/LaunchAgents/com.paloaltonetworks.gp.*.plist
+do [[ -f "$p" ]] && AGENT_PLIST="$p" && break; done
+
+# Si no encontramos plists, probamos etiquetas conocidas
+DAEMON_LABEL="com.paloaltonetworks.gp.pangps"
+AGENT_LABEL="com.paloaltonetworks.gp.pangpa"
+
+# Intentar leer Label real del plist si existe
+PLISTBUDDY="/usr/libexec/PlistBuddy"
+if [[ -n "$DAEMON_PLIST" && -x "$PLISTBUDDY" ]]; then
+  set +e; L=$("$PLISTBUDDY" -c 'Print :Label' "$DAEMON_PLIST" 2>/dev/null); set -e
+  [[ -n "${L:-}" ]] && DAEMON_LABEL="$L"
+fi
+if [[ -n "$AGENT_PLIST" && -x "$PLISTBUDDY" ]]; then
+  set +e; L=$("$PLISTBUDDY" -c 'Print :Label' "$AGENT_PLIST" 2>/dev/null); set -e
+  [[ -n "${L:-}" ]] && AGENT_LABEL="$L"
 fi
 
 # ===== (Opcional) Limpieza leve previa =====
