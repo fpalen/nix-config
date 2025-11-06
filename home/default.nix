@@ -1,7 +1,6 @@
 { primaryUser, primaryMail, ... }:
 {
   imports = [
-    lazyvim.homeManagerModules.default
     ./packages.nix
     ./git.nix
     ./ssh.nix
