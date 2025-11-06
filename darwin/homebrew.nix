@@ -41,6 +41,7 @@
       # other
       "1password"
       "1password-cli"
+      "qemu"
       # "anki"
       # "brave-browser"
       # "obsidian"
