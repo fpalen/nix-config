@@ -6,9 +6,9 @@ _: {
     syntaxHighlighting.enable = true;
 
     shellAliases = {
-      la = "ls -la";
+      "la" = "ls -la";
       ".." = "cd ..";
-      "nix-switch" = "sudo darwin-rebuild switch --flake ~/.config/nix";
+      "nix-switch" = "sudo darwin-rebuild switch --flake ~/.config/nix#my-macbook ";
     };
   };
 
