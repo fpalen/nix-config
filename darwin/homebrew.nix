@@ -50,7 +50,6 @@
       # "zen"
     ];
     brews = [
-      "openconnect"
       # "docker"
       # "colima"
     ];
