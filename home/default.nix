@@ -8,7 +8,6 @@
     ./mise.nix
     ./vscode.nix
     ./globalprotect.nix
-    ./neovim.nix
   ];
 
   home = {
