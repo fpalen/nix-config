@@ -25,6 +25,7 @@
       # browsers
       "firefox"
       "microsoft-edge"
+      "ungoogled-chromium"
 
       # dev
       # "cursor"
