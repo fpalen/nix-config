@@ -50,8 +50,9 @@
       # "zen"
     ];
     brews = [
-      # "docker"
-      # "colima"
+      "lima"
+      "colima"
+      "docker"
     ];
     taps = [
       # "nikitabobko/tap"
