@@ -10,6 +10,12 @@
     ignores = [ "**/.DS_STORE" ];
 
     extraConfig = {
+      color.ui = "auto";
+    
+      alias = {
+        s = "status -sb --ignore-submodules=dirty";
+        st = "status";
+      };
       # github = {
         # user = primaryUser;
       # };
