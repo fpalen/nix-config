@@ -34,13 +34,24 @@
     {
       # build darwin flake using:
       # $ darwin-rebuild build --flake .#<name>
-      darwinConfigurations."my-macbook" = darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
-        modules = [
-          ./hosts/my-macbook/darwin
-          ./hosts/my-macbook/configuration.nix
-        ];
-        specialArgs = { inherit inputs self primaryUser; };
+      # darwinConfigurations."my-macbook" = darwin.lib.darwinSystem {
+      #   system = "aarch64-darwin";
+      #   modules = [
+      #     ./hosts/my-macbook/darwin
+      #     ./hosts/my-macbook/configuration.nix
+      #   ];
+      #   specialArgs = { inherit inputs self primaryUser; };
+      # };
+
+      nixosConfigurations = {
+        my-macbook = darwin.lib.darwinSystem {
+          system = "aarch64-darwin";
+          modules = [
+            ./hosts/my-macbook/darwin
+            ./hosts/my-macbook/configuration.nix
+          ];
+          specialArgs = { inherit inputs self primaryUser; };
+        };
       };
 
     };
