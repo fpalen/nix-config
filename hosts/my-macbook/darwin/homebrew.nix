@@ -54,7 +54,7 @@
       "lima"
       "colima"
       "docker"
-      "chatgpt-cli"
+      # "chatgpt-cli"
     ];
     taps = [
       kardolus/chatgpt-cli
