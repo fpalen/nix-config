@@ -7,6 +7,7 @@
 }:
 {
   imports = [
+    ../../../../modules/system/common.nix
     ./homebrew.nix
     ./settings.nix
     inputs.home-manager.darwinModules.home-manager
