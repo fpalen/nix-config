@@ -37,7 +37,7 @@
       darwinConfigurations."my-macbook" = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         modules = [
-          ./darwin
+          ./hosts/darwin
           ./hosts/my-macbook/configuration.nix
         ];
         specialArgs = { inherit inputs self primaryUser; };
