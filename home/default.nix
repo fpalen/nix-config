@@ -1,13 +1,13 @@
 { primaryUser, primaryMail, ... }:
 {
   imports = [
-    ./packages.nix
-    ./git.nix
-    ./ssh.nix
-    ./shell.nix
-    ./mise.nix
-    ./vscode.nix
-    ./globalprotect.nix
+    ./fpalen/packages.nix
+    ./fpalen/git.nix
+    ./fpalen/ssh.nix
+    ./fpalen/shell.nix
+    ./fpalen/mise.nix
+    ./fpalen/vscode.nix
+    ./fpalen/globalprotect.nix
   ];
 
   home = {
