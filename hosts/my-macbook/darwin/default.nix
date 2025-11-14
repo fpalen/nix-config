@@ -41,7 +41,7 @@
     useUserPackages = true;
     users.${primaryUser} = {
       imports = [
-        ../home
+        ../../../home
       ];
     };
     extraSpecialArgs = {
