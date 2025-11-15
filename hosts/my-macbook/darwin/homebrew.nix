@@ -55,10 +55,11 @@
       "lima"
       "colima"
       "docker"
+      # "chatgpt"
       # "chatgpt-cli"
     ];
     taps = [
-      kardolus/chatgpt-cli
+      # "kardolus/chatgpt-cli"
       # "nikitabobko/tap"
     ];
   };
