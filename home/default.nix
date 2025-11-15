@@ -8,13 +8,16 @@
     ./fpalen/mise.nix
     ./fpalen/vscode.nix
     ./fpalen/globalprotect.nix
+    ./fpalen/whatsapp-wpa.nix
   ];
 
   home = {
     username = primaryUser;
     stateVersion = "25.05";
+    sessionPath = [ "$HOME/.local/bin" ];
     sessionVariables = {
       # shared environment variables
+      NH_FLAKE = "$HOME/.config/nix";
       GH_TOKEN="$(op read 'op://Personal/GitHub/TOKEN')";
     };
 
