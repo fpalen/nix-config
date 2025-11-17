@@ -44,6 +44,7 @@
       "1password-cli"
       "utm"
       "chatgpt"
+      "microsoft-remote-desktop"
       # "anki"
       # "brave-browser"
       # "obsidian"
