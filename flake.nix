@@ -15,6 +15,11 @@
     # declarative homebrew management
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
 
+    # firefox anddons
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
