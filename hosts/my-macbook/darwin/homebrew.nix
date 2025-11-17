@@ -1,4 +1,4 @@
-{ ... }:
+_:
 {
   homebrew = {
     enable = true;
@@ -58,6 +58,7 @@
       "lima"
       "colima"
       "docker"
+      # "chromium"
       # "chatgpt"
       # "chatgpt-cli"
     ];

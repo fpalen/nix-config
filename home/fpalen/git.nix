@@ -1,4 +1,4 @@
-{ primaryUser, primaryMail, ... }:
+{ primaryUser, ... }:
 {
   programs.git = {
     enable = true;
@@ -11,13 +11,13 @@
 
     extraConfig = {
       color.ui = "auto";
-    
+
       alias = {
         s = "status -sb --ignore-submodules=dirty";
         st = "status";
       };
       # github = {
-        # user = primaryUser;
+      # user = primaryUser;
       # };
       url."ssh://git@github.com/".insteadOf = [
         "https://github.com/"

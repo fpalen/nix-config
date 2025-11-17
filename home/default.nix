@@ -1,4 +1,4 @@
-{ primaryUser, primaryMail, pkgs, lib, inputs, ... }:
+{ primaryUser, ... }:
 {
   imports = [
     ./fpalen/firefox.nix
@@ -19,7 +19,7 @@
     sessionVariables = {
       # shared environment variables
       NH_FLAKE = "$HOME/.config/nix";
-      GH_TOKEN="$(op read 'op://Personal/GitHub/TOKEN')";
+      GH_TOKEN = "$(op read 'op://Personal/GitHub/TOKEN')";
     };
 
     # create .hushlogin file to suppress login messages

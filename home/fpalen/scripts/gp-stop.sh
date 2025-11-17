@@ -40,4 +40,3 @@ if pgrep -f GlobalProtect >/dev/null; then
 else
   echo "✅ GlobalProtect detenido correctamente."
 fi
-

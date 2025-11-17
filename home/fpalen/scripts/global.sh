@@ -9,62 +9,62 @@ WAIT_FOR_APP_TO_BE_READY=5
 WAIT_FOR_CONNECTION=15
 
 function check_setup() {
-    if [ ! -e "/Applications/GlobalProtect.app" ]; then
-        echo "GlobalProtect app is not installed."
-        exit 1
-    fi
+  if [ ! -e "/Applications/GlobalProtect.app" ]; then
+    echo "GlobalProtect app is not installed."
+    exit 1
+  fi
 
-    if [ ! -e "/Library/LaunchAgents/com.paloaltonetworks.gp.pangps.plist" ] || [ ! -e "/Library/LaunchAgents/com.paloaltonetworks.gp.pangpa.plist" ]; then
-        echo "GlobalProtect launch agents are not properly set up."
-        exit 1
-    fi
+  if [ ! -e "/Library/LaunchAgents/com.paloaltonetworks.gp.pangps.plist" ] || [ ! -e "/Library/LaunchAgents/com.paloaltonetworks.gp.pangpa.plist" ]; then
+    echo "GlobalProtect launch agents are not properly set up."
+    exit 1
+  fi
 }
 
 function ensure_app_running() {
-    for ((i=1; i<=$MAX_ATTEMPTS; i++)); do
-        if osascript -e 'tell application "System Events" to (name of processes) contains "GlobalProtect"' &>/dev/null; then
-            sleep $WAIT_FOR_APP_TO_BE_READY
-            return 0
-        fi
-        echo "Waiting for GlobalProtect app to start..."
-        sleep $SLEEP_INTERVAL
-    done
+  for ((i = 1; i <= MAX_ATTEMPTS; i++)); do
+    if osascript -e 'tell application "System Events" to (name of processes) contains "GlobalProtect"' &>/dev/null; then
+      sleep $WAIT_FOR_APP_TO_BE_READY
+      return 0
+    fi
+    echo "Waiting for GlobalProtect app to start..."
+    sleep $SLEEP_INTERVAL
+  done
 
-    echo "Failed to start GlobalProtect app."
-    exit 1
+  echo "Failed to start GlobalProtect app."
+  exit 1
 }
 
 function start_vpn() {
-    echo -e "\nStarting GlobalProtect...\n"
-    launchctl bootstrap gui/$(id -u) /Library/LaunchAgents/com.paloaltonetworks.gp.pangps.plist
-    launchctl bootstrap gui/$(id -u) /Library/LaunchAgents/com.paloaltonetworks.gp.pangpa.plist
+  echo -e "\nStarting GlobalProtect...\n"
+  launchctl bootstrap gui/$(id -u) /Library/LaunchAgents/com.paloaltonetworks.gp.pangps.plist
+  launchctl bootstrap gui/$(id -u) /Library/LaunchAgents/com.paloaltonetworks.gp.pangpa.plist
 
-    ensure_app_running
+  ensure_app_running
 
+  connect_vpn
+
+  sleep $WAIT_FOR_CONNECTION
+
+  if check_vpn_status; then
+    echo -e "\nVPN is connected to $PORTAL\n"
+    return 0
+  fi
+
+  for ((i = 1; i <= MAX_ATTEMPTS; i++)); do
     connect_vpn
-
-    sleep $WAIT_FOR_CONNECTION
-
+    sleep $SLEEP_INTERVAL
     if check_vpn_status; then
-        echo -e "\nVPN is connected to $PORTAL\n"
-        return 0
+      echo -e "\nVPN is connected to $PORTAL\n"
+      return 0
     fi
+  done
 
-    for ((i=1; i<=$MAX_ATTEMPTS; i++)); do
-        connect_vpn
-        sleep $SLEEP_INTERVAL
-        if check_vpn_status; then
-        echo -e "\nVPN is connected to $PORTAL\n"
-            return 0
-        fi
-    done
-
-    echo -e "\nFailed to connect to VPN after $MAX_ATTEMPTS attempts\n"
-    exit 1
+  echo -e "\nFailed to connect to VPN after $MAX_ATTEMPTS attempts\n"
+  exit 1
 }
 
 function connect_vpn() {
-    osascript <<EOF &>/dev/null
+  osascript <<EOF &>/dev/null
     tell application "System Events"
         tell process "GlobalProtect"
             if not (exists window 1) then
@@ -83,7 +83,8 @@ EOF
 }
 
 function check_vpn_status() {
-    VPN_STATUS=$(osascript <<EOF 2>/dev/null
+  VPN_STATUS=$(
+    osascript <<EOF 2>/dev/null
     tell application "System Events"
         tell process "GlobalProtect"
             set frontmost to true -- keep window 1 active
@@ -97,52 +98,52 @@ function check_vpn_status() {
         end tell
     end tell
 EOF
-    )
-    echo "VPN status: $VPN_STATUS"
-    if [ "$VPN_STATUS" == "Connected" ]; then
-        return 0
-    elif [ "$VPN_STATUS" == "Not Connected" ]; then
-        return 1
-    else
-        return 1
-    fi
+  )
+  echo "VPN status: $VPN_STATUS"
+  if [ "$VPN_STATUS" == "Connected" ]; then
+    return 0
+  elif [ "$VPN_STATUS" == "Not Connected" ]; then
+    return 1
+  else
+    return 1
+  fi
 }
 function stop_vpn() {
-    echo -e "\nStopping GlobalProtect...\n"
+  echo -e "\nStopping GlobalProtect...\n"
 
-    if ! launchctl bootout gui/$(id -u) /Library/LaunchAgents/com.paloaltonetworks.gp.pangps.plist 2>/dev/null || \
-       ! launchctl bootout gui/$(id -u) /Library/LaunchAgents/com.paloaltonetworks.gp.pangpa.plist 2>/dev/null; then
-        echo "Failed to bootout as current user, trying with sudo..."
-        sudo launchctl bootout gui/$(id -u) /Library/LaunchAgents/com.paloaltonetworks.gp.pangps.plist 2>/dev/null
-        sudo launchctl bootout gui/$(id -u) /Library/LaunchAgents/com.paloaltonetworks.gp.pangpa.plist 2>/dev/null
-    fi
+  if ! launchctl bootout gui/$(id -u) /Library/LaunchAgents/com.paloaltonetworks.gp.pangps.plist 2>/dev/null ||
+    ! launchctl bootout gui/$(id -u) /Library/LaunchAgents/com.paloaltonetworks.gp.pangpa.plist 2>/dev/null; then
+    echo "Failed to bootout as current user, trying with sudo..."
+    sudo launchctl bootout gui/$(id -u) /Library/LaunchAgents/com.paloaltonetworks.gp.pangps.plist 2>/dev/null
+    sudo launchctl bootout gui/$(id -u) /Library/LaunchAgents/com.paloaltonetworks.gp.pangpa.plist 2>/dev/null
+  fi
 
-    PIDS=$(launchctl list | grep -E 'com\.paloaltonetworks\.gp\.pangpa|com\.paloaltonetworks\.gp\.pangps' | awk '{print $1}')
-    if [ ! -z "$PIDS" ]; then
-        echo "Killing GlobalProtect processes..."
-        for PID in $PIDS; do 
-            if sudo kill -9 $PID; then
-                echo "Killed process $PID"
-            else
-                echo "Failed to kill process $PID"
-            fi
-        done
-    fi
+  PIDS=$(launchctl list | grep -E 'com\.paloaltonetworks\.gp\.pangpa|com\.paloaltonetworks\.gp\.pangps' | awk '{print $1}')
+  if [ ! -z "$PIDS" ]; then
+    echo "Killing GlobalProtect processes..."
+    for PID in $PIDS; do
+      if sudo kill -9 $PID; then
+        echo "Killed process $PID"
+      else
+        echo "Failed to kill process $PID"
+      fi
+    done
+  fi
 
-    echo -e "\nVPN stopped\n"
+  echo -e "\nVPN stopped\n"
 }
 
 case $1 in
-    start)
-        check_setup
-        start_vpn
-        ;;
-    stop)
-        stop_vpn
-        ;;
-    *)
-        echo "'$1' is not a valid verb."
-        echo "Usage: $0 {start|stop}"
-        exit 1
-        ;;
+start)
+  check_setup
+  start_vpn
+  ;;
+stop)
+  stop_vpn
+  ;;
+*)
+  echo "'$1' is not a valid verb."
+  echo "Usage: $0 {start|stop}"
+  exit 1
+  ;;
 esac

@@ -36,8 +36,6 @@
       self,
       darwin,
       nixpkgs,
-      home-manager,
-      nix-homebrew,
       treefmt-nix,
       systems,
       ...
@@ -46,21 +44,15 @@
       # TODO: replace with your username
       primaryUser = "fpalen";
       primaryMail = "fpalen@gmail.com";
-        eachSystem = f:
-    nixpkgs.lib.genAttrs
-      (import systems)  # esto suele ser una lista de systems
-      (system: f system);
           forAllSystems = nixpkgs.lib.genAttrs (import systems);
     # Eval Treefmt para cada sistema
-    treefmtEval = forAllSystems (system:
-      treefmt-nix.lib.evalModule nixpkgs.legacyPackages.${system} ./treefmt.nix
+      treefmtEval = forAllSystems (
+        system: treefmt-nix.lib.evalModule nixpkgs.legacyPackages.${system} ./treefmt.nix
     );
     in
     {
           # ---- Formatter visible para nix fmt ----
-    formatter = forAllSystems (system:
-      treefmtEval.${system}.config.build.wrapper
-    );
+      formatter = forAllSystems (system: treefmtEval.${system}.config.build.wrapper);
 
     # ---- Checks para CI / nix flake check ----
     checks = forAllSystems (system: {
@@ -73,8 +65,20 @@
             ./hosts/my-macbook/darwin
             ./hosts/my-macbook/configuration.nix
           ];
+          specialArgs = {
+            inherit
+              inputs
+              self
+              primaryUser
+              primaryMail
+              ;
+          };
+        };
+      };
+
           specialArgs = { inherit inputs self primaryUser; };
         };
+        specialArgs = { inherit inputs self primaryUser; };
       };
 
     };

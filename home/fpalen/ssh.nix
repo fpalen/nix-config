@@ -1,4 +1,4 @@
-{ primaryUser, primaryMail, ... }:
+_:
 {
   programs.ssh = {
     enable = true;
