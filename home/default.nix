@@ -1,14 +1,14 @@
 { primaryUser, primaryMail, pkgs, lib, inputs, ... }:
 {
   imports = [
-    ./format.nix
-    ./fpalen/packages.nix
+    ./fpalen/firefox.nix
     ./fpalen/git.nix
-    ./fpalen/ssh.nix
-    ./fpalen/shell.nix
-    ./fpalen/mise.nix
-    ./fpalen/vscode.nix
     ./fpalen/globalprotect.nix
+    ./fpalen/mise.nix
+    ./fpalen/packages.nix
+    ./fpalen/shell.nix
+    ./fpalen/ssh.nix
+    ./fpalen/vscode.nix
     ./fpalen/whatsapp-wpa.nix
   ];
 
