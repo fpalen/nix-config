@@ -43,6 +43,7 @@
       "1password"
       "1password-cli"
       "utm"
+      "chatgpt"
       # "anki"
       # "brave-browser"
       # "obsidian"
