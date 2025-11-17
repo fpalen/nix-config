@@ -1,6 +1,7 @@
 { primaryUser, primaryMail, ... }:
 {
   imports = [
+    ./format.nix
     ./fpalen/packages.nix
     ./fpalen/git.nix
     ./fpalen/ssh.nix
