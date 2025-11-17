@@ -20,6 +20,15 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Format + linter
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    systems.url = "github:nix-systems/default";
+
   };
 
   outputs =
@@ -29,26 +38,21 @@
       nixpkgs,
       home-manager,
       nix-homebrew,
+      treefmt-nix,
+      systems,
       ...
     }@inputs:
     let
       # TODO: replace with your username
       primaryUser = "fpalen";
       primaryMail = "fpalen@gmail.com";
+        eachSystem = f:
+    nixpkgs.lib.genAttrs
+      (import systems)  # esto suele ser una lista de systems
+      (system: f system);
     in
     {
-      # build darwin flake using:
-      # $ darwin-rebuild build --flake .#<name>
-      # darwinConfigurations."my-macbook" = darwin.lib.darwinSystem {
-      #   system = "aarch64-darwin";
-      #   modules = [
-      #     ./hosts/my-macbook/darwin
-      #     ./hosts/my-macbook/configuration.nix
-      #   ];
-      #   specialArgs = { inherit inputs self primaryUser; };
-      # };
-
-      nixosConfigurations = {
+      darwinConfigurations = {
         my-macbook = darwin.lib.darwinSystem {
           system = "aarch64-darwin";
           modules = [
