@@ -10,6 +10,7 @@
     ../../../modules/system/common.nix
     ./homebrew.nix
     ./settings.nix
+    # ../../../format.nix
     inputs.home-manager.darwinModules.home-manager
     inputs.nix-homebrew.darwinModules.nix-homebrew
   ];
