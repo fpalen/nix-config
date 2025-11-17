@@ -1,4 +1,4 @@
-{ primaryUser, primaryMail, ... }:
+{ primaryUser, primaryMail, pkgs, lib, inputs, ... }:
 {
   imports = [
     ./format.nix
