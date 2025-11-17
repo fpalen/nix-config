@@ -26,6 +26,7 @@
       "firefox"
       "microsoft-edge"
       "brave-browser"
+      "chromium"
 
       # dev
       # "cursor"
