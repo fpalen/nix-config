@@ -7,8 +7,8 @@
     # Configuración de perfiles
     profiles.default = {
       # Declaración de extensiones
-      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-        onepassword-password-manager
+      extensions.packages = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
+        ublock-origin
       ];
 
       # Opcional: preferencias de usuario
