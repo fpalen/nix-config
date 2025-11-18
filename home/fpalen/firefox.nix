@@ -12,8 +12,8 @@
       ];
 
       # Opcional: preferencias de usuario
-      prefs = {
-
+      settings = {
+        "browser.shell.checkDefaultBrowser" = false;
       };
     };
   };
