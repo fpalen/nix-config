@@ -33,8 +33,9 @@
 
   # homebrew installation manager
   nix-homebrew = {
+    enable = true;
+    enableRosetta = true;
     user = primaryUser;
-    enable = false;
     autoMigrate = true;
   };
 
