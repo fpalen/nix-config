@@ -10,6 +10,7 @@ _: {
       ".." = "cd ..";
       "g" = "git";
       "nix-switch" = "sudo darwin-rebuild switch --flake ~/.config/nix#my-macbook";
+      "nixup" = "nix-switch";
       "gp-start" = "global start";
       "gp-stop" = "global stop";
     };
