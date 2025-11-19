@@ -45,6 +45,7 @@ _:
       "utm"
       "chatgpt"
       "microsoft-remote-desktop"
+      "calibre"
       # "anki"
       # "brave-browser"
       # "obsidian"
