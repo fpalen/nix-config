@@ -5,6 +5,10 @@ _: {
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
+    initContent = ''
+      fastfetch
+    '';
+
     shellAliases = {
       "la" = "ls -la";
       ".." = "cd ..";

@@ -10,6 +10,7 @@
       # tree
       # ripgrep
       gh
+      fastfetch
       # zoxide
 
       # programming languages
