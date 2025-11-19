@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
     git
     rsync # GNU rsync (idéntico en Linux y macOS)
+    htop
   ];
 
   # Opcional: variables globales del entorno
