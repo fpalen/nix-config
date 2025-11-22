@@ -76,7 +76,10 @@
         };
       };
 
-          specialArgs = { inherit inputs self primaryUser; };
+      nixosConfigurations = {
+        nixos-vm = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [ ];
         };
         specialArgs = { inherit inputs self primaryUser; };
       };
