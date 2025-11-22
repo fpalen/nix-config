@@ -14,6 +14,8 @@
       # Opcional: preferencias de usuario
       settings = {
         "browser.shell.checkDefaultBrowser" = false;
+        "browser.translations.automaticallyPopup" = false;
+        "browser.translations.enable" = false;
       };
     };
   };
