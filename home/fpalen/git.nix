@@ -1,9 +1,9 @@
-{ primaryUser, ... }:
+{ primaryUser, primaryMail, ... }:
 {
   programs.git = {
     enable = true;
-    userName = primaryUser; # TODO replace
-    userEmail = "fpalen@gmail.com"; # TODO replace
+    userName = primaryUser;
+    userEmail = primaryMail;
 
     lfs.enable = true;
 
