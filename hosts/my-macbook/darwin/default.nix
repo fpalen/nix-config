@@ -27,6 +27,7 @@
       # auto-optimise-store = true;
     };
     enable = false; # using determinate installer
+
   };
 
   nixpkgs.config.allowUnfree = true;
