@@ -98,14 +98,21 @@ nix-macos-starter/
 
 # Post Install.
 
+## install rosseta
+
+softwareupdate --install-rosetta
+
 ## Firefox:
+
 - Install 1Password Extension.
 
 ## Microsoft Edge
+
 - Install 1Password Extension.
-- Install Outlook and Teams as PWA. 
+- Install Outlook and Teams as PWA.
 
 ## 1Password
+
 - Show develop tools
 - integrate with cli
 - Enable ssh-agent
