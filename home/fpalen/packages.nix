@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  my.alacritty.enable = true;
+
   home = {
     packages = with pkgs; [
       # dev tools
