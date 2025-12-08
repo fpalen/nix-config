@@ -2,8 +2,13 @@
 {
   programs.git = {
     enable = true;
-    userName = primaryUser;
-    userEmail = primaryMail;
+    settings = {
+      user = {
+        name = primaryUser;
+        email = primaryMail;
+
+      };
+    };
 
     lfs.enable = true;
 
