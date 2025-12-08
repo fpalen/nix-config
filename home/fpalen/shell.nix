@@ -13,6 +13,8 @@ _: {
       "la" = "ls -la";
       ".." = "cd ..";
       "g" = "git";
+      "gs" = "git s";
+      "gst" = "git st";
       "nix-switch" = "sudo darwin-rebuild switch --flake ~/.config/nix#my-macbook";
       "nixup" = "nix-switch";
       "gp-start" = "global start";
