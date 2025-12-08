@@ -44,20 +44,20 @@
       # TODO: replace with your username
       primaryUser = "fpalen";
       primaryMail = "fpalen@gmail.com";
-          forAllSystems = nixpkgs.lib.genAttrs (import systems);
-    # Eval Treefmt para cada sistema
+      forAllSystems = nixpkgs.lib.genAttrs (import systems);
+      # Eval Treefmt para cada sistema
       treefmtEval = forAllSystems (
         system: treefmt-nix.lib.evalModule nixpkgs.legacyPackages.${system} ./treefmt.nix
-    );
+      );
     in
     {
-          # ---- Formatter visible para nix fmt ----
+      # ---- Formatter visible para nix fmt ----
       formatter = forAllSystems (system: treefmtEval.${system}.config.build.wrapper);
 
-    # ---- Checks para CI / nix flake check ----
-    checks = forAllSystems (system: {
-      formatting = treefmtEval.${system}.config.build.check self;
-    });
+      # ---- Checks para CI / nix flake check ----
+      checks = forAllSystems (system: {
+        formatting = treefmtEval.${system}.config.build.check self;
+      });
       darwinConfigurations = {
         my-macbook = darwin.lib.darwinSystem {
           system = "aarch64-darwin";
