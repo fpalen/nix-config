@@ -1,5 +1,4 @@
-_:
-{
+_: {
   # networking.hostName = "my-macbook";
 
   # host-specific homebrew casks
