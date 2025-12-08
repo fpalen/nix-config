@@ -22,7 +22,7 @@ _: {
       # "betterdisplay"
 
       # browsers
-      "firefox"
+      # "firefox"
       "microsoft-edge"
       "brave-browser"
       "chromium"
