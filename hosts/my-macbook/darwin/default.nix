@@ -25,6 +25,12 @@
       ];
       # disabled due to https://github.com/NixOS/nix/issues/7273
       # auto-optimise-store = true;
+      substituters = [
+        "https://nix-community.cachix.org"
+      ];
+      srusted-public-keys = [
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      ];
     };
     enable = false; # using determinate installer
 
