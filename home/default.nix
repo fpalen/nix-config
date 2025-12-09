@@ -10,6 +10,7 @@
     ./fpalen/ssh.nix
     ./fpalen/vscode.nix
     ./fpalen/whatsapp-wpa.nix
+    ./alacritty.nix
     ./fpalen/yazi.nix
     ./fpalen/kitty.nix
   ];
