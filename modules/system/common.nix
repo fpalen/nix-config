@@ -7,6 +7,7 @@
     htop
     wget
     curl
+    bash
   ];
 
   # Opcional: variables globales del entorno
