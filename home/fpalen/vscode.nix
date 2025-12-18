@@ -6,5 +6,12 @@
       jnoortheen.nix-ide
       shd101wyy.markdown-preview-enhanced
     ];
+    keybindings = [
+      {
+        key = "cmd+alt+p";
+        command = "git.push";
+        when = "git.push";
+      }
+    ];
   };
 }
