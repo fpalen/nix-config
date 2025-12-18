@@ -5,6 +5,8 @@
     git
     rsync # GNU rsync (idéntico en Linux y macOS)
     htop
+    wget
+    curl
   ];
 
   # Opcional: variables globales del entorno
