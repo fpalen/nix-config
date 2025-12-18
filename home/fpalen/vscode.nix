@@ -10,7 +10,7 @@
       {
         key = "cmd+alt+p";
         command = "git.push";
-        when = "git.push";
+        when = "gitOpenRepositoryCount != 0";
       }
     ];
   };
