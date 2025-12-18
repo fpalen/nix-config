@@ -6,15 +6,7 @@
       user = {
         name = primaryUser;
         email = primaryMail;
-
       };
-    };
-
-    lfs.enable = true;
-
-    ignores = [ "**/.DS_STORE" ];
-
-    extraConfig = {
       color.ui = "auto";
 
       alias = {
@@ -32,6 +24,14 @@
       init = {
         defaultBranch = "main";
       };
+      
     };
+
+    lfs.enable = true;
+
+    ignores = [ "**/.DS_STORE" ];
+
+    # extraConfig = {
+    # };
   };
 }
