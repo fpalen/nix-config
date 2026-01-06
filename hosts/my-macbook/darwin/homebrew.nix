@@ -44,7 +44,7 @@ _: {
       "1password-cli"
       "utm"
       "chatgpt"
-      "microsoft-remote-desktop"
+      "windows-app"
       "calibre"
       # "anki"
       # "brave-browser"
