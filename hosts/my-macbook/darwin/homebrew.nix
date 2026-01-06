@@ -39,6 +39,7 @@ _: {
       # "signal"
 
       # other
+      "obsidian"
       "1password"
       "1password-cli"
       "utm"
