@@ -46,6 +46,7 @@ _: {
       "chatgpt"
       "windows-app"
       "calibre"
+      "alacritty"
       # "anki"
       # "brave-browser"
       # "obsidian"
