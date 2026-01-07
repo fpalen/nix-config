@@ -13,6 +13,7 @@
       # ripgrep
       gh
       fastfetch
+      fd
       # zoxide
 
       # programming languages
