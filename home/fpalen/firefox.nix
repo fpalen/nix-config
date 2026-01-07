@@ -3,6 +3,7 @@
 {
   programs.firefox = {
     enable = true;
+    # package = pkgs.firefox-bin;
 
     # Configuración de perfiles
     profiles.default = {
