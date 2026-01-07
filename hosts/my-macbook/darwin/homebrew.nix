@@ -47,6 +47,7 @@ _: {
       "windows-app"
       "calibre"
       "alacritty"
+      "microsoft-teams"
       # "anki"
       # "brave-browser"
       # "obsidian"
