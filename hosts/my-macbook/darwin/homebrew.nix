@@ -47,6 +47,7 @@ _: {
       "windows-app"
       "calibre"
       "alacritty"
+      "localsend"
       "microsoft-teams"
       # "anki"
       # "brave-browser"
