@@ -8,6 +8,7 @@
     wget
     curl
     bash
+    tmux
   ];
 
   # Opcional: variables globales del entorno
