@@ -13,6 +13,7 @@
     ./alacritty.nix
     ./fpalen/yazi.nix
     ./fpalen/kitty.nix
+    ./fpalen/tmux.nix
   ];
 
   home = {
