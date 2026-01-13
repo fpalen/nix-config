@@ -26,6 +26,7 @@
       # yt-dlp
       # ffmpeg
       # ollama
+      tree-sitter
 
       # fonts
       nerd-fonts.jetbrains-mono
