@@ -48,6 +48,7 @@ _: {
       "calibre"
       "alacritty"
       "localsend"
+      "omnissa-horizon-client"
       "microsoft-teams"
       # "anki"
       # "brave-browser"
